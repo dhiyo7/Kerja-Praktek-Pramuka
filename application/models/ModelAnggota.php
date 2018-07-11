@@ -36,12 +36,20 @@
 
 
         // untuk edit ambil dari id level paling bawah
+<<<<<<< HEAD
         /*public function get_selected_by_id_kecamatan($id_kecamatan)
+=======
+        public function get_selected_by_id_kecamatan($id_kecamatan)
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         {
             $this->db->where('id_kecamatan', $id_kecamatan);
             $this->db->join('tb_kabupaten', 'tb_kecamatan.kabupaten_id = kabupaten.id_kabupaten');
             $this->db->join('tb_provinsi', 'tb_kabupaten.provinsi_id = provinsi.id_provinsi');
             return $this->db->get('tb_kecamatan')->row();
         }
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
     }

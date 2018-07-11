@@ -5,9 +5,14 @@
                       <div class="col-md-6 col-sm-12">
                         <h3 class="animated fadeInLeft">Grafik </h3>
                         <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Data</p>
+<<<<<<< HEAD
                         
                       <canvas id="canvas" width="1000" height="280"></canvas>
 
+=======
+
+                     
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
@@ -48,18 +53,48 @@
                             <div class="col-md-6 col-sm-6 col-sm-12 text-left">
                               <h4>Golongan</h4>
                             </div>
+<<<<<<< HEAD
                             
+=======
+                            <div class="col-md-6 col-sm-6 col-sm-12">
+                                <div class="mini-onoffswitch pull-right onoffswitch-danger" style="margin-top:10px;">
+                                  <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
+                                  <label class="onoffswitch-label" for="myonoffswitch1"></label>
+                                </div>
+                            </div>
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                           </div>
                           <div class="panel-body" style="padding-bottom:50px;">
                               <div id="canvas-holder1">
                                     <canvas class="line-chart" style="margin-top:30px;height:200px;"></canvas>
                               </div>
+<<<<<<< HEAD
                               <!--   <?php
                                   foreach($jk as $data){
                                       $nama_lengkap[] = $data->nama_lengkap;
                                       $jk[] = $data->jk;
                                   }
                               ?> -->
+=======
+                              <div class="col-md-12" style="padding-top:20px;">
+                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                                      <h2 style="line-height:.3;">3.000</h2>
+                                      <small>Total Siaga</small>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                                      <h2 style="line-height:.3;">4.000</h2>
+                                      <small>Total Penggalang</small>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                                      <h2 style="line-height:.3;">2.000</h2>
+                                      <small>Total Penegak</small>
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                                      <h2 style="line-height:.3;">1.000</h2>
+                                      <small>Total Pandega</small>
+                                  </div>                                 
+                              </div>
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                           </div>
                         </div>
                     </div>

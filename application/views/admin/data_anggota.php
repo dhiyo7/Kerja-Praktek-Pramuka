@@ -21,7 +21,11 @@
                     <div class="panel-heading"><h3>Data Anggota</h3></div>
                   <div class="col-md-6" style="margin-top:5px;">        
                               <div>
+<<<<<<< HEAD
                                   <a href="<?php echo base_url()?>admin/add_anggota" ><button class="btn ripple-infinite btn-3d btn-info">
+=======
+                                  <a href="<?php echo base_url()?>admin/add_anggota" ><button class="btn ripple-infinite btn-3d btn-success">
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                                 <div><i class="fa fa-plus"></i>
                                   <span>Tambah</span>
                                 </div>
@@ -43,6 +47,10 @@
                         <tr>
                           <th>No</th>
                           <th>Nama </th>
+<<<<<<< HEAD
+=======
+                          <th>Username</th>
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                           <th>Agama</th>
                           <th>Alamat</th>
                           <th>Jenis Kelamin</th>
@@ -59,7 +67,12 @@
                   ?>
                         <tr>
                           <td><?php echo $no++?></td>
+<<<<<<< HEAD
                           <td><?php echo $d->nama_lengkap?></td>
+=======
+                          <td><?php echo $d->nama?></td>
+                          <td><?php echo $d->username?></td>
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                           <td><?php echo $d->agama?></td>
                           <td><?php echo $d->alamat?></td>
                           <td><?php echo $d->jk?></td> 
@@ -67,8 +80,13 @@
                           <td><?php echo $d->gol_darah?></td>
                        
                             <td style="text-align: center;">
+<<<<<<< HEAD
                           <a class='btn ripple-infinite btn-round btn-edit' href="<?php echo base_url('admin/editAnggota/'.$d->id_anggota);?>"  class=""><i class="glyphicon glyphicon-edit"></i> </a>
                          <a class='btn ripple-infinite btn-round btn-delete' href="<?php echo base_url('admin/deleteAnggota/'.$d->id_anggota);?>" onclick="functionDelete('<?php echo base_url('admin/deleteAnggota/'.$d->id_anggota);?>')"><i class="glyphicon glyphicon-trash"></i> </a> 
+=======
+                          <a class='btn ripple-infinite btn-round btn-edit' href="<?php echo base_url('admin/editAnggota/'.$d->id);?>"  class=""><i class="glyphicon glyphicon-edit"></i> </a>
+                         <a class='btn ripple-infinite btn-round btn-delete' href="<?php echo base_url('admin/deleteAnggota/'.$d->id);?>" onclick="functionDelete('<?php echo base_url('admin/deleteAnggota/'.$d->id);?>')"><i class="glyphicon glyphicon-trash"></i> </a> 
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                       </td>
                         </tr>
                          <?php }

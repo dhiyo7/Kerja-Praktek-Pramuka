@@ -20,15 +20,25 @@ class User extends CI_Controller{
 	}
 
 	 public function profil()
+<<<<<<< HEAD
     {    $data['anggota'] = $this->modelSekolah->getAnggota();
         /*$data['anggota'] = $this->modelProfil->getProfil();*/
+=======
+    {
+        $data['profil'] = $this->modelProfil->getProfil();
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         $data['main'] = 'user/edit_profil';
        $this->load->view('template/template',$data);
     }
 
+<<<<<<< HEAD
     public function editProfil($id=null){
        $data['anggota'] = $this->modelSekolah->getDataByAnggota($id);
    /*$data['anggota'] = $this->modelProfil->getDataByProfil($id);*/
+=======
+    public function editProfil($id){
+   $data['profil'] = $this->modelSekolah->getDataByProfil($id);
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
       $data['main'] = 'user/edit_profil';
       $this->load->view('template/template',$data);
       if ($id==null) {
@@ -37,12 +47,20 @@ class User extends CI_Controller{
       }
 
       if($this->input->post('submit')==true){
+<<<<<<< HEAD
       $this->form_validation->set_rules('nama_lengkap', 'Nama ','trim|required');
+=======
+      $this->form_validation->set_rules('nama', 'Nama ','trim|required');
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
      $this->form_validation->set_rules('username', 'Username','trim|required');
      $this->form_validation->set_rules('password', 'Password','trim|required');
     if ($this->form_validation->run() == TRUE) {
       $data = array(
+<<<<<<< HEAD
          'nama_lengkap' => $this->input->post('nama_lengkap'),
+=======
+         'nama' => $this->input->post('nama'),
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         'username' => $this->input->post('username'),
         'password' => $this->input->post('password')
         );

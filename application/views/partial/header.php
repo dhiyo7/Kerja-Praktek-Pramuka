@@ -27,6 +27,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<<<<<<< HEAD
 
 
  
@@ -37,6 +38,8 @@
         }
     ?>
  -->
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
   </head>
 
  <body id="mimin" class="dashboard">
@@ -49,7 +52,11 @@
                 <span class="middle"></span>
                 <span class="bottom"></span>
               </div>
+<<<<<<< HEAD
                 <a href="" class="navbar-brand">
+=======
+                <a href="<?php echo base_url()?>admin/index" class="navbar-brand">
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                  <b>Salam Pramuka</b>
                 </a>
 

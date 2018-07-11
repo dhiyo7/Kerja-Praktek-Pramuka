@@ -21,7 +21,11 @@
                     <div class="panel-heading"><h3>Data Kegiatan</h3></div>
                   <div class="col-md-6" style="margin-top:5px;">        
                               <div>
+<<<<<<< HEAD
                                   <a href="<?php echo base_url()?>admin/add_kegiatan" ><button class="btn ripple-infinite btn-3d btn-info">
+=======
+                                  <a href="<?php echo base_url()?>admin/add_kegiatan" ><button class="btn ripple-infinite btn-3d btn-success">
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                                 <div><i class="fa fa-plus"></i>
                                   <span>Tambah</span>
                                 </div>
@@ -40,7 +44,10 @@
                           <th>Nama Kegiatan</th>
                           <th>Tanggal Pelaksanaan</th>
                           <th>Deskripsi</th>
+<<<<<<< HEAD
                           <th>Dokumen</th>
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -55,10 +62,16 @@
                           <td><?php echo $d->nama_kegiatan?></td>
                           <td><?php echo $d->tgl_kegiatan?></td>
                           <td><?php echo $d->rincian?></td>
+<<<<<<< HEAD
                           <td><img style="width: 100px;" src='<?= base_url().'uploads/'.$d->dokumen ?>'></td>
                             <td style="text-align: center;">
                           <a class='btn ripple-infinite btn-round btn-edit' href="<?php echo base_url('admin/editKegiatan/'.$d->id_kegiatan);?>"  class=""><i class="glyphicon glyphicon-edit"></i> </a>
                          <a class='btn ripple-infinite btn-round btn-delete' href="<?php echo base_url('admin/deleteKegiatan/'.$d->id_kegiatan);?>" onclick=""><i class="glyphicon glyphicon-trash"></i> </a> 
+=======
+                            <td style="text-align: center;">
+                          <a class='btn ripple-infinite btn-round btn-edit' href="<?php echo base_url('admin/editKegiatan/'.$d->id);?>"  class=""><i class="glyphicon glyphicon-edit"></i> </a>
+                         <a class='btn ripple-infinite btn-round btn-delete' href="<?php echo base_url('admin/deleteKegiatan/'.$d->id);?>" onclick=""><i class="glyphicon glyphicon-trash"></i> </a> 
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                       </td>
                         </tr>
                           <?php }

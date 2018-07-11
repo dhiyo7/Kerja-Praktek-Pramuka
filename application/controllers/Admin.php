@@ -9,7 +9,10 @@ class Admin extends CI_Controller{
     $this->load->model('modelAnggota');
     $this->load->model('modelSekolah');
     $this->load->model('modelUser');
+<<<<<<< HEAD
     $this->load->model('modelGrafik');
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
  /*   if (empty($this->session->userdata('id_pengguna'))) {
     redirect(base_url("login"));
     }*/
@@ -21,15 +24,25 @@ class Admin extends CI_Controller{
         $this->load->view('partial/partial', $data);
     }
     public function dashboard()
+<<<<<<< HEAD
     {   
       // $data['grafik'] = $this->modelGrafik->getGrafik();
       $data['main'] = 'admin/dashboard';
       $this->load->view('partial/partial', $data);
+=======
+    {
+        $data['main'] = 'admin/dashboard';
+        $this->load->view('partial/partial', $data);
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
     }
    
     public function add_anggota()
     {
+<<<<<<< HEAD
        $data['kecamatan'] = $this->modelAnggota->get_kecamatan(); 
+=======
+       /*$data['kecamatan'] = $this->modelAnggota->get_kecamatan(); */
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         $data['kabupaten'] = $this->modelAnggota->get_kabupaten();     
         $data['provinsi'] = $this->modelAnggota->get_provinsi();
         $data['main'] = 'admin/add_anggota';
@@ -37,33 +50,58 @@ class Admin extends CI_Controller{
     }
      public function addAnggota(){
 
+<<<<<<< HEAD
      $this->form_validation->set_rules('nama_lengkap', 'Nama ','trim|required');
+=======
+     $this->form_validation->set_rules('nama', 'Nama ','trim|required');
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
      $this->form_validation->set_rules('username', 'Username','trim|required');
      $this->form_validation->set_rules('alamat', 'Alamat','trim|required');
      $this->form_validation->set_rules('password', 'Password','trim|required');
 
     if ($this->form_validation->run() == TRUE) {
       $data = array(
+<<<<<<< HEAD
         'nama_lengkap' => $this->input->post('nama_lengkap'),
+=======
+        'nama' => $this->input->post('nama'),
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         'username' => $this->input->post('username'),
         'tgl_lahir' => $this->input->post('tgl_lahir'),
         'jk' => $this->input->post('jk'),
         'agama' => $this->input->post('agama'),
         'gol_darah' => $this->input->post('gol_darah'),
         'alamat' => $this->input->post('alamat'),
+<<<<<<< HEAD
         'id_provinsi' =>$this->input->post('nama_provinsi'),
         'id_kabupaten' => $this->input->post('nama_kabupaten'),
         'id_kecamatan' => $this->input->post('nama_kecamatan'),
+=======
+  /*      'id_provinsi' =>$this->input->post('nama_provinsi'),
+        'id_kabupaten' => $this->input->post('nama_kabupaten'),*/
+     /*   'id_kecamatan' => $this->input->post('nama_kecamatan'),*/
+        /*'provinsi' => $this->->get_provinsi(),
+        'kabupaten' => $this->modelAnggota->get_kabupaten(),
+        'kecamatan' => $this->modelAnggota->get_kecamatan(),
+        'desa' => $this->modelAnggota->get_desa(),
+        'provinsi_selected' => '',
+        'kabupaten_selected' => '',
+        'kecamatan_selected' => '',
+        'desa_selected' => '',*/
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         'password' => $this->input->post('password'),
         'level' => $this->input->post('level'),
         'sekolah_id' => $this->input->post('sekolah_id'),
         'tkt_pendidikan' => $this->input->post('tkt_pendidikan')
         );
+<<<<<<< HEAD
       /* $unique = $this->db->where('nama_lengkap',$data['nama_lengkap'])->get('tb_anggota');
          if ($unique) {
          $this->session->set_flashdata('info', 'Nama  Sudah ada');
            redirect('admin/data_anggota','refresh');
          }*/
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
     $cek = $this->modelSekolah->addAnggota($data);
     if ($cek) {
       $this->session->set_flashdata('info', 'Tambah Data sukses');
@@ -88,13 +126,21 @@ class Admin extends CI_Controller{
       }
 
       if($this->input->post('submit')==true){
+<<<<<<< HEAD
       $this->form_validation->set_rules('nama_lengkap', 'Nama ','trim|required');
+=======
+      $this->form_validation->set_rules('nama', 'Nama ','trim|required');
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
      $this->form_validation->set_rules('username', 'Username','trim|required');
      $this->form_validation->set_rules('alamat', 'Alamat','trim|required');
      $this->form_validation->set_rules('password', 'Password','trim|required');
     if ($this->form_validation->run() == TRUE) {
       $data = array(
+<<<<<<< HEAD
          'nama_lengkap' => $this->input->post('nama_lengkap'),
+=======
+         'nama' => $this->input->post('nama'),
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
         'username' => $this->input->post('username'),
         'tgl_lahir' => $this->input->post('tgl_lahir'),
         'jk' => $this->input->post('jk'),
@@ -239,6 +285,7 @@ public function deleteSekolah($id=null){
     }
 
  public function addKegiatann(){
+<<<<<<< HEAD
      $config = [
         'upload_path' => './uploads/',
         'allowed_types' => 'gif|jpg|png',
@@ -266,6 +313,30 @@ public function deleteSekolah($id=null){
           redirect('admin/kegiatan'); //mengalihkan halaman
       }
   }
+=======
+     $this->form_validation->set_rules('nama_kegiatan', 'Nama sub','trim|required');
+     $this->form_validation->set_rules('tgl_kegiatan', 'No Gudep','trim|required');
+     $this->form_validation->set_rules('rincian', 'Alamat','trim|required');
+    if ($this->form_validation->run() == TRUE) {
+      $data = array(
+        'nama_kegiatan' => $this->input->post('nama_kegiatan'),
+        'tgl_kegiatan' => $this->input->post('tgl_kegiatan'),
+        'rincian' => $this->input->post('rincian')
+        );
+    $cek = $this->modelSekolah->addKegiatann($data);
+    if ($cek) {
+      $this->session->set_flashdata('info', 'Tambah Data sukses');
+      redirect('admin/kegiatan','refresh');
+    }else{
+      $this->session->set_flashdata('info', 'Tambah Data Gagal');
+      redirect('admin/add_kegiatan','refresh');
+    } 
+    }else{
+      $this->session->set_flashdata('info', 'Tambah Data Gagal');
+      redirect('admin/add_kegiatan','refresh');
+      }
+}
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
 
 public function editKegiatan($id=null){
         $data['kegiatan'] = $this->modelSekolah->getDataByKegiatan($id);
@@ -331,12 +402,15 @@ public function deleteKegiatan($id=null){
         $this->load->view('partial/partial',$data);
     }
 
+<<<<<<< HEAD
     public function report_upload(){
  /*    $data['anggota'] = $this->modelSekolah->tampilAnggota();*/
      $data['kegiatan'] = $this->modelSekolah->getKegiatan();
       $data['main'] ='admin/report_upload';
       $this->load->view('partial/partial',$data);
     }
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
    function logout(){
   $this->session->sess_destroy();
   redirect(base_url('login'));

@@ -29,6 +29,7 @@
                    </div>
                </div>
             </div>
+<<<<<<< HEAD
                   <?php if($this->session->flashdata('info')){ ?>
                 <div class="alert alert-warning alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -46,6 +47,11 @@
                     );  
               echo form_open('user/editProfil/'.$anggota->id_anggota,$name);
             ?> 
+=======
+            <div class="col-md-12 col-sm-12 profile-v1-body">
+               <div class="col-md-12">
+
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                  <div class="form-element">
                 <div class="col-md-12 padding-0">
                   <div class="col-md-12">
@@ -53,6 +59,7 @@
                       <div class="panel-heading">
                        <h4>Edit Profile</h4>
                       </div>
+<<<<<<< HEAD
             
               <div class="panel-body" style="padding-bottom:30px;">
                         <div class="col-md-12">
@@ -69,6 +76,20 @@
                             <input type="password" id="password" name="password" value="<?php echo $profil->password;?>" class="form-control"></div><br><br>
                             <div class="form-group text-center"><div class="col-md-12">
                                  <a href="#"><button name="submit" value="submit" class="btn ripple-infinite btn-gradient btn-info">
+=======
+                       <div class="panel-body" style="padding-bottom:30px;">
+                        <div class="col-md-12">
+                          <div class="form-group"><label class="col-sm-2 control-label text-right">Nama Lengkap</label>
+                            <div class="col-sm-10"><input type="text" name="nama" id="nama" class="form-control" disabled></div>
+                          </div>
+                          <div class="form-group"><label class="col-sm-2 control-label text-right">Username</label>
+                            <div class="col-sm-10"><input type="text" class="form-control"></div>
+                          </div>
+                          <div class="form-group"><label class="col-sm-2 control-label text-right">Password</label>
+                            <div class="col-sm-10"><input type="password" class="form-control"></div><br><br>
+                            <div class="form-group text-center"><div class="col-md-12">
+                                 <a href="#"><button class="btn ripple-infinite btn-gradient btn-info">
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                             <div>
                                 <span>Save</span>
                             </div>
@@ -76,8 +97,11 @@
                               <hr/>
                             </div>
                           </div>
+<<<<<<< HEAD
                           <?php 
             echo form_close()?>
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                         </div>
                       </div>
                     </div>
@@ -85,7 +109,11 @@
                </div>
 
             </div>
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
          </div>
          <!-- end: content -->
        </div>

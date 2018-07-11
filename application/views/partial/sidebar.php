@@ -29,7 +29,10 @@
               <ul class="nav nav-list tree">
                 <li><a href="<?php echo base_url()?>admin/laporan_pdf"><span class="fa-file-pdf-o fa"></span>Export to PDF</a></li>
                 <li><a href="<?php echo base_url()?>admin/laporan_excel"><span class="fa-file-excel-o fa"></span>Export to Excel</a></li>
+<<<<<<< HEAD
                 <li><a href="<?php echo base_url()?>admin/report_upload"><span class=" icon-cloud-upload"></span>Data Upload</a></li>
+=======
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
               </ul>
             </li>
             <li class="ripple">

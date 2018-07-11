@@ -27,8 +27,13 @@
    
         $sekolah = $this->db->get('tb_anggota')->result();
         foreach ($sekolah as $row){
+<<<<<<< HEAD
             $pdf->Cell(10,6,$row->id_anggota,1,0);
             $pdf->Cell(30,6,$row->nama_lengkap,1,0);
+=======
+            $pdf->Cell(10,6,$row->id,1,0);
+            $pdf->Cell(30,6,$row->nama,1,0);
+>>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
             $pdf->Cell(27,6,$row->tgl_lahir,1,0);
             $pdf->Cell(10,6,$row->jk,1,0);
             $pdf->Cell(27,6,$row->agama,1,0);
