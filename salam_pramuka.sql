@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 10, 2018 at 05:31 PM
+-- Generation Time: Jul 12, 2018 at 06:34 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -51,11 +51,7 @@ CREATE TABLE `tb_anggota` (
 --
 
 INSERT INTO `tb_anggota` (`id`, `nama`, `username`, `tgl_lahir`, `jk`, `agama`, `gol_darah`, `alamat`, `password`, `level`, `sekolah_id`, `tkt_pendidikan`, `id_provinsi`, `id_kabupaten`, `id_kecamatan`) VALUES
-(3, 'user', 'user', '2018-07-03', 'L', 'islam', 'B', 'Tegal', 'user', 'user', '2', 'SMP', 0, 0, 0),
-(12, 'ali budi', 'ali', '2018-07-01', 'L', 'islam', 'O', 'Tegal', 'ali', 'admin', '1', 'SMA', 0, 0, 0),
-(13, 'aa', 'aaa', '2018-06-26', 'L', 'islam', 'A', 'aaaa', 'aaa', 'admin', 'sss', 'aaa', 0, 0, 0),
-(14, 'andi', 'andi M', '2009-07-06', 'L', 'islam', 'AB', 'Tegal', 'andi', 'admin', 'Sd mangunsaren', 'SMK', 0, 0, 0),
-(15, 'aku', 'aku', '2018-06-25', 'L', 'islam', 'O', 'Tge', 'aaa', 'user', 'aaaa', 'SD', 0, 0, 0);
+(15, 'user', 'user', '2018-06-25', 'L', 'islam', 'O', 'Tge', 'user', 'user', 'aaaa', 'SD', 0, 0, 0);
 
 -- --------------------------------------------------------
 
