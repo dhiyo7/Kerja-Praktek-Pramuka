@@ -18,7 +18,7 @@
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="<?php echo base_url()?>user/profil"><span class="fa-user fa"></span>Edit Profil</a></li>
+                        <li><a href="<?php echo base_url()?>user/edit_profil"><span class="fa-user fa"></span>Edit Profil</a></li>
                         <li><a href="<?php echo base_url()?>user/print"><span class="fa-building fa"></span>Print Data Diri</a></li>
                       </ul>
                     </li>
