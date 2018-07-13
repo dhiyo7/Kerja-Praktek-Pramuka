@@ -10,7 +10,7 @@
                 </div>
             <?php } ?>
                     <div class="col-md-12">
-                        <h3 class="animated fadeInLeft">Data Kegiatan</h3>
+                        <h3 class="animated fadeInLeft">Data Penghargaan</h3>
                         
                     </div>
                   </div>
@@ -18,19 +18,15 @@
               <div class="col-md-12 top-20 padding-0">
                 <div class="col-md-12">
                   <div class="panel">
-                    <div class="panel-heading"><h3>Data Kegiatan</h3></div>
+                    <div class="panel-heading"><h3>Data Penghargaan</h3></div>
                   <div class="col-md-6" style="margin-top:5px;">        
                               <div>
-                                  <a href="<?php echo base_url()?>admin/add_sekolah" ><button class="btn ripple-infinite btn-3d btn-success">
+                                  <a href="<?php echo base_url()?>admin/add_penghargaan" ><button class="btn ripple-infinite btn-3d btn-success">
                                 <div><i class="fa fa-plus"></i>
                                   <span>Tambah</span>
                                 </div>
                                 </button>
                               </a> 
-                               <a href="<?php echo base_url()?>admin/excel" ><button class="btn ripple-infinite btn-3d btn-success">
-                                <div><i class="fa fa-file-excel-o"></i>
-                                  <span>Eksport to Excel</span>
-                                </div>
                                 </button>
                               </a> 
                              </div>
@@ -42,23 +38,33 @@
                       <thead>
                         <tr>
                           <th>No</th>
-                          <th>Nama Kegiatan</th>
-                          <th>Tanggal Pelaksanaan</th>
-                          <th>Deskripsi</th>
+                          <th>Nama Penghargaan</th>
+                          <th>Gambar</th>
+                          <th>Keterangan</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
-               <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                 <?php 
+                  $no = 1;
+                  if($penghargaan!=null){
+                    foreach($penghargaan as $d){                  
+                  ?>
+                        <tr>
+                          <td><?php echo $no++?></td>
+                          <td><?php echo $d->nama_penghargaan?></td>
+                          <td><img style="width: 100px;" src='<?= base_url().'uploads/'.$d->gambar ?>'></td>
+                          <td><?php echo $d->keterangan?></td>
                             <td style="text-align: center;">
-                          <a class='btn ripple-infinite btn-round btn-edit' href=""  class=""><i class="glyphicon glyphicon-edit"></i> </a>
-                         <a class='btn ripple-infinite btn-round btn-delete' href="" onclick=""><i class="glyphicon glyphicon-trash"></i> </a> 
+                          <a class='btn ripple-infinite btn-round btn-edit' href="<?php echo base_url('admin/editPenghargaan/'.$d->id_penghargaan);?>"  class=""><i class="glyphicon glyphicon-edit"></i> </a>
+                         <a class='btn ripple-infinite btn-round btn-delete' href="<?php echo base_url('admin/deletePenghargaan/'.$d->id_penghargaan);?>"><i class="glyphicon glyphicon-trash"></i> </a> 
                       </td>
                         </tr>
+                         <?php }
+                    } else { ?>
+                         <td class="text-center" colspan="9"><i>Tidak Ada Data</i></td>
+                    </tr>
+                  <?php } ?>
                       </tbody>
                         </table>
                       </div>
