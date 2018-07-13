@@ -21,11 +21,7 @@
                     <div class="panel-heading"><h3>Data Kegiatan</h3></div>
                   <div class="col-md-6" style="margin-top:5px;">        
                               <div>
-<<<<<<< HEAD
-                                  <a href="<?php echo base_url()?>admin/add_sekolah" ><button class="btn ripple-infinite btn-3d btn-info">
-=======
                                   <a href="<?php echo base_url()?>admin/add_sekolah" ><button class="btn ripple-infinite btn-3d btn-success">
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                                 <div><i class="fa fa-plus"></i>
                                   <span>Tambah</span>
                                 </div>
