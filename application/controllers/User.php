@@ -114,6 +114,7 @@ class User extends CI_Controller{
 
     public function riwayat_kegiatan()
     {
+      $data['kegiatan'] = $this->modelSekolah->getKegiatan();
         $data['main'] = 'user/riwayat_kegiatan';
        $this->load->view('template/template',$data);
     }
@@ -152,6 +153,7 @@ class User extends CI_Controller{
 
     public function penghargaan()
     {
+           $data['penghargaan'] = $this->modelSekolah->getPenghargaan();
         $data['main'] = 'user/riwayat_penghargaan';
         $this->load->view('template/template',$data);
     }
