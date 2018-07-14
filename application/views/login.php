@@ -31,8 +31,8 @@
     <body id="mimin" class="dashboard form-signin-wrapper">
 
       <div class="container">
-
-        <form class="form-signin" action="<?php echo base_url('login/ceklogin');?>" method="post">
+            <form class="form-signin" action="<?php echo base_url('login/proseslogin');?>" method="post">
+    <!--     <form class="form-signin" action="<?php echo base_url('login/ceklogin');?>" method="post"> -->
           <div class="panel periodic-login">
               <span class="atomic-number">Login</span>
               <div class="panel-body text-center">
@@ -43,19 +43,19 @@
                   <i class="icons icon-arrow-down"></i>
                   <div class="form-group form-animate-text" style="margin-top:40px !important;">
                   
-                    <input type="text" class="form-text" name="user" required>
+                    <input type="text" class="form-text" name="username" required>
                     <span class="bar"></span>
                     <label>Username</label>
                   </div>
                   <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                    <input type="password" class="form-text" name="pass" required>
+                    <input type="password" class="form-text" name="password" required>
                     <span class="bar"></span>
                     <label>Password</label>
                   </div>
                   <label class="pull-left">
                   <input type="checkbox" class="icheck pull-left" name="checkbox1"/> Remember me
                   </label>
-                  <input type="submit" class="btn col-md-12" name="login" value="LOGIN"/>
+                  <input type="submit" class="btn col-md-12" name="login" value="Login"/>
        
               </div>
               
