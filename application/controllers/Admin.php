@@ -10,16 +10,17 @@ class Admin extends CI_Controller{
     $this->load->model('modelSekolah');
     $this->load->model('modelUser');
     $this->load->model('modelGrafik');
- /*   if (empty($this->session->userdata('id_pengguna'))) {
-    redirect(base_url("login"));
-    }*/
+if (!$this->session->userdata('level','username')) {
+      redirect('login');
+    }
  }
 
     public function index()
     {
         $data['main'] = 'admin/dashboard';
         $this->load->view('partial/partial', $data);
-    }
+    
+  }
     public function dashboard()
     {  /* $data['grafik'] = $this->modelGrafik->getGrafik();*/
         $data['main'] = 'admin/dashboard';
@@ -53,7 +54,7 @@ class Admin extends CI_Controller{
         'id_provinsi' =>$this->input->post('nama_provinsi'),
         'id_kabupaten' => $this->input->post('nama_kabupaten'),
         'id_kecamatan' => $this->input->post('nama_kecamatan'),
-        'password' => $this->input->post('password'),
+        'password' => md5($this->input->post('password')),
         'level' => $this->input->post('level'),
         'sekolah_id' => $this->input->post('sekolah_id'),
         'tkt_pendidikan' => $this->input->post('tkt_pendidikan')

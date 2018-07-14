@@ -10,14 +10,15 @@ class User extends CI_Controller{
     $this->load->model('modelSekolah');
      $this->load->model('modelProfil');
     $this->load->model('modelUser');
- /*   if (empty($this->session->userdata('id_pengguna'))) {
-    redirect(base_url("login"));
-    }*/
+ if (!$this->session->userdata('level')) {
+      redirect('login');
+    }
  }
 	public function index(){
 		$data['main'] = 'user/user_dashboard';
 		$this->load->view('template/template',$data);
-	}
+	
+}
 
 	 public function edit_profil()
     {   /* $data['anggota'] = $this->modelSekolah->getAnggota();*/
@@ -153,7 +154,7 @@ class User extends CI_Controller{
 
     public function penghargaan()
     {
-           $data['penghargaan'] = $this->modelSekolah->getPenghargaan();
+        $data['penghargaan'] = $this->modelSekolah->getPenghargaan();
         $data['main'] = 'user/riwayat_penghargaan';
         $this->load->view('template/template',$data);
     }
