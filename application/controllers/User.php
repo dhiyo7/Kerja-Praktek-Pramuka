@@ -10,7 +10,7 @@ class User extends CI_Controller{
     $this->load->model('modelSekolah');
      $this->load->model('modelProfil');
     $this->load->model('modelUser');
- if (!$this->session->userdata('level')) {
+ if (!$this->session->userdata('level','id_anggota')) {
       redirect('login');
     }
  }
@@ -20,17 +20,22 @@ class User extends CI_Controller{
 	
 }
 
+  public function form_edit(){
+    $data['anggota'] = $this->modelProfil->getProfil(($this->session->userdata('id_anggota')));
+    $data['main'] = 'user/form_edit';
+    $this->load->view('template/template',$data);
+  }
 	 public function edit_profil()
     {   /* $data['anggota'] = $this->modelSekolah->getAnggota();*/
-        $data['anggota'] = $this->modelProfil->getProfil();
-        $data['main'] = 'user/edit_profil';
+/*        var_dump($this->session->userdata()); die('CEK');*/
+        $data['anggota'] = $this->modelProfil->getProfil(($this->session->userdata('id_anggota')));
+        $data['main'] = 'user/edit_profill';
        $this->load->view('template/template',$data);
     }
 
     public function editProfil($id=null){
-   /*    $data['anggota'] = $this->modelSekolah->getDataByAnggota($id);*/
       $data['anggota'] = $this->modelProfil->getDataByProfil($id);
-      $data['main'] = 'user/edit_profil';
+      $data['main'] = 'user/form_edit';
       $this->load->view('template/template',$data);
       if ($id==null) {
         $this->session->set_flashdata('info','Id profil tidak boleh kosong!');
@@ -48,7 +53,7 @@ class User extends CI_Controller{
         'password' => $this->input->post('password')
         );
 
-    $sql = $this->modelProfil->updateProfil($id,$data);
+    $sql = $this->modelProfil->updateProfil($data);
     if ($sql) {
       $this->session->set_flashdata('info', 'Edit Data sukses');
       redirect('user/edit_profil','refresh');

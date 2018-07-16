@@ -17,8 +17,8 @@ if (!$this->session->userdata('level','username')) {
 
     public function index()
     {
-        $data['main'] = 'admin/dashboard';
-        $this->load->view('partial/partial', $data);
+      $x['data'] = $this->modelGrafik->getGrafik();
+      $this->load->view('admin/dashboard',$x);
     
   }
     public function dashboard()
