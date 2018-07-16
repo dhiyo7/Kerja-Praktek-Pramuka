@@ -1,22 +1,165 @@
-     <!-- start: content -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="description" content="Miminium Admin Template v.1">
+  <meta name="author" content="Isna Nur Azis">
+  <meta name="keyword" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Miminium</title>
+ 
+    <!-- start: Css -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/css/bootstrap.min.css">
+
+      <!-- plugins -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/css/plugins/font-awesome.min.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/css/plugins/simple-line-icons.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/css/plugins/animate.min.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/css/plugins/fullcalendar.min.css"/>
+  <link href="<?php echo base_url()?>asset/css/style.css" rel="stylesheet">
+  <!-- end: Css -->
+
+                <?php
+        foreach($data as $data){
+            $nama_lengkap[] = $data->nama_lengkap;
+            $gol_darah[] = (float) $data->gol_darah;
+        }
+    ?>
+
+  <link rel="shortcut icon" href="<?php echo base_url()?>asset/img/logomi.png">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+  </head>
+
+ <body id="mimin" class="dashboard">
+      <!-- start: Header -->
+        <nav class="navbar navbar-default header navbar-fixed-top">
+          <div class="col-md-12 nav-wrapper">
+            <div class="navbar-header" style="width:100%;">
+              <div class="opener-left-menu is-open">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+              </div>
+                <a href="" class="navbar-brand">
+                 <b>Salam Pramuka</b>
+                </a>
+
+              <ul class="nav navbar-nav search-nav">
+                <li>
+                   <div class="search">
+                    <span class="fa fa-search icon-search" style="font-size:23px;"></span>
+                    <div class="form-group form-animate-text">
+                      <input type="text" class="form-text" required>
+                      <span class="bar"></span>
+                      <label class="label-search">Type anywhere to <b>Search</b> </label>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right user-nav">
+                <li class="user-name"><span>Pramuka Uye</span></li>
+                  <li class="dropdown avatar-dropdown">
+                   <img src="<?php echo base_url()?>asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+                   <ul class="dropdown-menu user-dropdown">
+                     <li><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
+                     <li><a href="#"><span class="fa fa-calendar"></span> My Calendar</a></li>
+                     <li role="separator" class="divider"></li>
+                     <li class="more">
+                      <ul>
+                        <li><a href=""><span class="fa fa-cogs"></span></a></li>
+                        <li><a href=""><span class="fa fa-lock"></span></a></li>
+                        <li><a href=""><span class="fa fa-power-off "></span></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <!-- <li ><a href="#" class="opener-right-menu"><span class="fa fa-coffee"></span></a></li> -->
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <!-- end: Header -->
+
+      <div class="container-fluid mimin-wrapper">
+  
+          <!-- start:Left Menu -->
+               <div id="left-menu">
+      <div class="sub-left-menu scroll">
+        <ul class="nav nav-list">
+            <li><div class="left-bg"></div></li>
+            <li class="time">
+              <h1 class="animated fadeInLeft">21:00</h1>
+              <p class="animated fadeInRight">Sat,October 1st 2029</p>
+            </li>
+
+            <li><a href="<?php echo base_url()?>admin/index"><span class="fa-home fa"></span>Dashboard</a></li>
+
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-database fa"></span> Data
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php echo base_url()?>admin/data_anggota"><span class="fa-user fa margin= 5px"></span>Data Anggota</a></li>
+                <li><a href="<?php echo base_url()?>admin/data_sekolah"><span class="fa-building fa"></span>Data Sekolah</a></li>
+              </ul>
+            </li>
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-print fa"></span> Report
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php echo base_url()?>admin/laporan_pdf"><span class="fa-file-pdf-o fa"></span>Export to PDF</a></li>
+                <li><a href="<?php echo base_url()?>admin/laporan_excel"><span class="fa-file-excel-o fa"></span>Export to Excel</a></li>
+                <li><a href="<?php echo base_url()?>admin/report_upload"><span class=" icon-cloud-upload"></span>Data Upload</a></li>
+              </ul>
+            </li>
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-rocket fa"></span> Posting
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php echo base_url()?>admin/kegiatan">Posting Kegiatan</a></li>
+                <li><a href="<?php echo base_url()?>admin/penghargaan">Posting Penghargaan</a></li>
+              </ul>
+            </li>
+            <li><a href="<?php echo base_url()?>loginn/logout"><span class="fa-sign-out fa"></span>Logout</a></li>
+            <!-- <li><a href="#"><span class="fa-home fa"></span>Dashboard</a></li> -->
+          </ul>
+        </div>
+    </div>
+          <!-- end: Left Menu -->
+
+      
+          <!-- start: content -->
             <div id="content">
                 <div class="panel">
                   <div class="panel-body">
                       <div class="col-md-6 col-sm-12">
-                        <h3 class="animated fadeInLeft">Grafik </h3>
-                        <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Data</p>
-<<<<<<< HEAD
-                        
-                      <canvas id="canvas" width="1000" height="280"></canvas>
+                        <h3 class="animated fadeInLeft">Customer Service</h3>
+                        <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Batavia,Indonesia</p>
 
-=======
-
-                     
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
+                        <ul class="nav navbar-nav">
+                            <li><a href="" >Impedit</a></li>
+                            <li><a href="" class="active">Virtute</a></li>
+                            <li><a href="">Euismod</a></li>
+                            <li><a href="">Explicar</a></li>
+                            <li><a href="">Rebum</a></li>
+                        </ul>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
-                          <h3 style="color:#DDDDDE;"><span class="fa  fa-map-marker"></span>Tegal</h3>
+                          <h3 style="color:#DDDDDE;"><span class="fa  fa-map-marker"></span> Banyumas</h3>
                           <h1 style="margin-top: -10px;color: #ddd;">30<sup>o</sup></h1>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -45,145 +188,52 @@
                   </div>                    
                 </div>
 
-               
-                  <div class="col-md-12 card-wrap padding-0">
-                    <div class="col-md-6">
-                        <div class="panel">
-                          <div class="panel-heading bg-white border-none" style="padding:20px;">
-                            <div class="col-md-6 col-sm-6 col-sm-12 text-left">
-                              <h4>Golongan</h4>
-                            </div>
-<<<<<<< HEAD
-                            
-=======
-                            <div class="col-md-6 col-sm-6 col-sm-12">
-                                <div class="mini-onoffswitch pull-right onoffswitch-danger" style="margin-top:10px;">
-                                  <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
-                                  <label class="onoffswitch-label" for="myonoffswitch1"></label>
-                                </div>
-                            </div>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
-                          </div>
-                          <div class="panel-body" style="padding-bottom:50px;">
-                              <div id="canvas-holder1">
-                                    <canvas class="line-chart" style="margin-top:30px;height:200px;"></canvas>
-                              </div>
-<<<<<<< HEAD
-                              <!--   <?php
-                                  foreach($jk as $data){
-                                      $nama_lengkap[] = $data->nama_lengkap;
-                                      $jk[] = $data->jk;
-                                  }
-                              ?> -->
-=======
-                              <div class="col-md-12" style="padding-top:20px;">
-                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
-                                      <h2 style="line-height:.3;">3.000</h2>
-                                      <small>Total Siaga</small>
-                                  </div>
-                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
-                                      <h2 style="line-height:.3;">4.000</h2>
-                                      <small>Total Penggalang</small>
-                                  </div>
-                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
-                                      <h2 style="line-height:.3;">2.000</h2>
-                                      <small>Total Penegak</small>
-                                  </div>
-                                  <div class="col-md-3 col-sm-3 col-xs-6 text-center">
-                                      <h2 style="line-height:.3;">1.000</h2>
-                                      <small>Total Pandega</small>
-                                  </div>                                 
-                              </div>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
-                          </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="panel">
-                          <div class="panel-heading bg-white border-none" style="padding:20px;">
-                            <div class="col-md-6 col-sm-6 col-sm-12 text-left">
-                              <h4>Agama</h4>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-sm-12">
-                                <div class="mini-onoffswitch pull-right onoffswitch-primary" style="margin-top:10px;">
-                                  <input type="checkbox" name="onoffswitch3" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
-                                  <label class="onoffswitch-label" for="myonoffswitch3"></label>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="panel-body" style="padding-bottom:50px;">
-                              <div id="canvas-holder1">
-                                <canvas class="bar-chart"></canvas>
-                              </div>
-                              <div class="col-md-12 padding-0" >
-                                <div class="col-md-4 col-sm-4 hidden-xs" style="padding-top:20px;">
-                                  <canvas class="doughnut-chart2"></canvas>
-                                </div>
-                                <div class="col-md-8 col-sm-8 col-xs-12">
-                                  
-                                    <div class="progress progress-mini">
-                                      <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                                        <span class="sr-only">60% Complete</span>
-                                      </div>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                        </div>
-                    </div>
-                    </div>
-
-                     <div class="col-md-12 card-wrap padding-0">
-                    <div class="col-md-6">
-                     <div class="panel">
-                           <div class="panel-heading-white panel-heading">
-                              <h4>Radar Chart</h4>
-                            </div>
-                            <div class="panel-body">
-                               <canvas class="radar-chart"></canvas>
-                            </div>
-                      </div>
-                </div>
-
-                  <div class="col-md-6">
-                     <div class="panel">
-                           <div class="panel-heading-white panel-heading">
-                              <h4>Radar Chart</h4>
-                            </div>
-                            <div class="panel-body">
-                               <canvas class="radar-chart1"></canvas>
-                            </div>
-                      </div>
-                </div>
-          </div>
-
-
-
-
-                    <div class="col-md-12">
-                        <div class="panel bg-green text-white">
-                            <div class="panel-body">
-                              <div class="col-md-8 col-sm-8 col-xs-12">
-                                <div class="maps" style="height:300px;">
-                                </div>
-                              </div>
-                              <div class="col-md-4 col-sm-4 col-xs-12">
-                                  <canvas class="doughnut-chart hidden-xs"></canvas>
-                                  <div class="col-md-12">
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                      <h1>72.993</h1>
-                                      <p>People</p>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 col-xs-12">
-                                       <h1>12.000</h1>
-                                       <p>Active</p>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
           <!-- end: content -->
+      <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
+        <span class="fa fa-bars"></span>
+      </button>
+       <!-- end: Mobile -->
+
+    <!-- start: Javascript -->
+    <script src="<?php echo base_url()?>asset/js/jquery.min.js"></script>
+    <script src="<?php echo base_url()?>asset/js/jquery.ui.min.js"></script>
+    <script src="<?php echo base_url()?>asset/js/bootstrap.min.js"></script>
+   
+    
+    <!-- plugins -->
+    <script src="<?php echo base_url()?>asset/js/plugins/moment.min.js"></script>
+    <script src="<?php echo base_url()?>asset/js/plugins/fullcalendar.min.js"></script>
+    <script src="<?php echo base_url()?>asset/js/plugins/jquery.nicescroll.js"></script>
+    <script src="<?php echo base_url()?>asset/js/plugins/jquery.vmap.min.js"></script>
+    <script src="<?php echo base_url()?>asset/js/plugins/maps/jquery.vmap.world.js"></script>
+    <script src="<?php echo base_url()?>asset/js/plugins/jquery.vmap.sampledata.js"></script>
+    <script src="<?php echo base_url()?>asset/js/plugins/chart.min.js"></script>
+
+
+    <!-- custom -->
+     <script src="<?php echo base_url()?>asset/js/main.js"></script>
+     <script type="text/javascript" src="<?php echo base_url().'asset/chartjs/chart.min.js'?>"></script>
+     <script type="text/javascript">
+    var lineChartData = {
+                labels : <?php echo json_encode($nama_lengkap);?>,
+                datasets : [
+                    
+                    {
+                        fillColor: "rgba(60,141,188,0.9)",
+                        strokeColor: "rgba(60,141,188,0.8)",
+                        pointColor: "#3b8bba",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(152,235,239,1)",
+                        data : <?php echo json_encode($gol_darah);?>
+                    }
+
+                ]
+                
+            }
+
+        var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+     </script>
+  <!-- end: Javascript -->
+  </body>
+</html>
