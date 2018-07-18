@@ -7,7 +7,7 @@
   <meta name="author" content="Isna Nur Azis">
   <meta name="keyword" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Miminium</title>
+    <title>Salam Pramuka</title>
  
     <!-- start: Css -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/css/bootstrap.min.css">
@@ -21,9 +21,9 @@
   <!-- end: Css -->
 
                 <?php
-        foreach($data as $data){
+        foreach($grafik as $data){
             $nama_lengkap[] = $data->nama_lengkap;
-            $gol_darah[] = (float) $data->gol_darah;
+            $jk[] =  $data->jk;
         }
     ?>
 
@@ -187,7 +187,12 @@
                     </div>
                   </div>                    
                 </div>
+<form class="form-group">
 
+  <canvas id="canvas" width="500" height="160"></canvas>
+  <canvas id="canvas2" width="500" height="160"></canvas>
+  <br> <canvas id="canvas3" width="500" height="160"></canvas>
+</form>
           <!-- end: content -->
       <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
         <span class="fa fa-bars"></span>
@@ -225,7 +230,7 @@
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(152,235,239,1)",
-                        data : <?php echo json_encode($gol_darah);?>
+                        data : <?php echo json_encode($jk);?>
                     }
 
                 ]
@@ -233,6 +238,46 @@
             }
 
         var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
+
+         var lineChartData = {
+                labels : <?php echo json_encode($nama_lengkap);?>,
+                datasets : [
+                    
+                    {
+                        fillColor: "rgba(60,141,188,0.9)",
+                        strokeColor: "rgba(60,141,188,0.8)",
+                        pointColor: "#3b8bba",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(152,235,239,1)",
+                        data : <?php echo json_encode($jk);?>
+                    }
+
+                ]
+                
+            }
+
+        var myLine = new Chart(document.getElementById("canvas2").getContext("2d")).Line(lineChartData);
+
+            var lineChartData = {
+                labels : <?php echo json_encode($nama_lengkap);?>,
+                datasets : [
+                    
+                    {
+                        fillColor: "rgba(60,141,188,0.9)",
+                        strokeColor: "rgba(60,141,188,0.8)",
+                        pointColor: "#3b8bba",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(152,235,239,1)",
+                        data : <?php echo json_encode($jk);?>
+                    }
+
+                ]
+                
+            }
+
+        var myLine = new Chart(document.getElementById("canvas3").getContext("2d")).Line(lineChartData);
      </script>
   <!-- end: Javascript -->
   </body>
