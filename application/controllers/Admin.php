@@ -3,19 +3,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller{
  function __construct() {
-
-    parent::__construct();
+ parent::__construct();
     $this->load->library('Pdf');
+    $this->load->library('Pdff');
+    $this->load->model('modelGrafik');
     $this->load->model('modelAnggota');
     $this->load->model('modelSekolah');
+    $this->load->model('modelProfil');
     $this->load->model('modelUser');
-    $this->load->model('modelGrafik');
-if (!$this->session->userdata('level','username')) {
+ if (!$this->session->userdata('level','id_anggota')) {
       redirect('login');
     }
  }
-
     public function index() {
+/*       $x['grafik'] = $this->modelGrafik->getAgama();*/
         $x['grafik'] = $this->modelGrafik->getGrafik();
         $this->load->view('admin/dashboard',$x);
   }
@@ -384,6 +385,19 @@ if (!$this->session->userdata('level','username')) {
   public function laporan_anggota(){
       $data['anggota'] = $this->modelSekolah->getAnggota();
       $this->load->view('admin/laporan_anggota',$data);
+  
+       $this->pdff->setPaper('A4', 'potrait');
+    $this->pdff->filename = "laporan.pdf";
+    $this->pdff->load_view('admin/laporan_anggota', $data);
+  }
+
+    public function laporan_sekolah(){
+      $data['sekolah'] = $this->modelSekolah->getData();
+      $this->load->view('admin/laporan_sekolah',$data);
+  
+       $this->pdff->setPaper('A4', 'potrait');
+    $this->pdff->filename = "laporan.pdf";
+    $this->pdff->load_view('admin/laporan_sekolah', $data);
   }
   public function laporan_pdf(){
       $data['main'] ='admin/laporan_pdf';

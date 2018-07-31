@@ -89,6 +89,10 @@ class User extends CI_Controller{
       $data['nama'] = $this->modelProfil->getNama(($this->session->userdata('id_anggota')));
       $data['anggota'] = $this->modelProfil->getPrint(($this->session->userdata('id_anggota'))); 
       $this->load->view('user/print_biodata',$data);
+
+      $this->pdff->setPaper('A4', 'potrait');
+    $this->pdff->filename = "laporan.pdf";
+    $this->pdff->load_view('user/print_biodata', $data);
   }
     
   public function keahlian() {
