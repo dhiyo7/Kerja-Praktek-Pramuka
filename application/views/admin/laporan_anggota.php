@@ -1,46 +1,89 @@
-<?php
-	$pdf = new Pdf('P', 'mm', 'f1', true, 'UTF-8', false);
-	$pdf->SetTitle('Laporan Data Sekolah');
-	$pdf->SetTopMargin(20);
-	$pdf->setFooterMargin(20);
-	$pdf->SetAutoPageBreak(true);
-	$pdf->SetAuthor('Author');
-	$pdf->SetDisplayMode('real', 'default');
-	$pdf->AddPage();
-        // setting jenis font yang akan digunakan
-        /*$pdf->SetFont('Arial','B',16);*/
-        // mencetak string 
-        $pdf->Cell(190,7,'APLIKASI PRAMUKA',0,1,'C');
-        /*$pdf->SetFont('Arial','B',12);*/
-        $pdf->Cell(190,7,'DATA ANGGOTA ',0,1,'C');
-        // Memberikan space kebawah agar tidak terlalu rapat
-        $pdf->Cell(10,7,'',0,1);
-       /* $pdf->SetFont('Arial','B',10);*/
-        $pdf->Cell(10,6,'ID',1,0);
-        $pdf->Cell(30,6,'NAMA ',1,0);
-        $pdf->Cell(27,6,'TGL LAHIR',1,0);
-        $pdf->Cell(10,6,'JK',1,0);
-        $pdf->Cell(27,6,'AGAMA',1,0);
-        $pdf->Cell(20,6,'DARAH',1,0);
-        $pdf->Cell(27,6,'ALAMAT',1,0);
-        $pdf->Cell(30,6,'PENDIDIKAN',1,1);
-   
-        $sekolah = $this->db->get('tb_anggota')->result();
-        foreach ($sekolah as $row){
-<<<<<<< HEAD
-            $pdf->Cell(10,6,$row->id_anggota,1,0);
-            $pdf->Cell(30,6,$row->nama_lengkap,1,0);
-=======
-            $pdf->Cell(10,6,$row->id,1,0);
-            $pdf->Cell(30,6,$row->nama,1,0);
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
-            $pdf->Cell(27,6,$row->tgl_lahir,1,0);
-            $pdf->Cell(10,6,$row->jk,1,0);
-            $pdf->Cell(27,6,$row->agama,1,0);
-            $pdf->Cell(20,6,$row->gol_darah,1,0);
-            $pdf->Cell(27,6,$row->alamat,1,0);
-            $pdf->Cell(30,6,$row->tkt_pendidikan,1,1); 
-        }
-        $pdf->Output();
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data</title>
+     <style type="text/css">
+    #outtable{
+      padding: 20px;
+      border:1px solid #e3e3e3;
+      width:600px;
+      border-radius: 5px;
+    }
  
+    .short{
+      width: 50px;
+    }
+ 
+    .normal{
+      width: 150px;
+    }
+ 
+    table{
+      border-collapse: collapse;
+      font-family: arial;
+      color:#5E5B5C;
+    }
+ 
+    thead th{
+      text-align: left;
+      padding: 10px;
+    }
+ 
+    tbody td{
+      border-top: 1px solid #e3e3e3;
+      padding: 10px;
+    }
+ 
+    tbody tr:nth-child(even){
+      background: #F6F5FA;
+    }
+ 
+    tbody tr:hover{
+      background: #EAE9F5
+    }
+  </style>
+</head>
+<body>
+  <h2 align="center"> <img align="left" width="70px" height="70px" src="images/pra.png"> Sistem Aplikasi Pramuka <img align="right" width="70px" height="70px" src="images/pram.png"> </h2>
+     <h3 align="center">Data Anggota Pramuka</h3>
+     <hr>
+    
+<div id="outtable">
+     <table  id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                      <thead>
+                        <tr bgcolor="yellow">
+                          <th>No</th>
+                          <th>Nama </th>
+                          <th>Tgl Lahir</th>
+                          <th>Jenis Kelamin</th>
+                          <th>Alamat</th>
+                          <th>Pendidikan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php 
+                  $no = 1;
+                  if($anggota!=null){
+                    foreach($anggota as $d){                  
+                  ?>
+                        <tr>
+                          <td><?php echo $no++?></td>
+                          <td><?php echo $d->nama_lengkap?></td>
+                          <td><?php echo $d->tgl_lahir?></td>
+                          <td><?php echo $d->jk?></td>
+                        <td><?php echo $d->alamat?></td>
+                        <td><?php echo $d->tkt_pendidikan?></td>
+                        </tr>
+                         <?php }
+                    } else { ?>
+                         <td class="text-center" colspan="9"><i>Tidak Ada Data</i></td>
+                    </tr>
+                  <?php } ?>
+                      </tbody>
+                        </table>
+        </div>
+     </body>
+     </html>
