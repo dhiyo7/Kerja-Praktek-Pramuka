@@ -16,28 +16,26 @@ class Admin extends CI_Controller{
     }
  }
     public function index() {
-/*       $x['grafik'] = $this->modelGrafik->getAgama();*/
-        $x['grafik'] = $this->modelGrafik->getGrafik();
+        $x['grafi']     = $this->modelGrafik->getSekolahh();
+        $x['grafika']   = $this->modelGrafik->getAgama();
+        $x['gol']       = $this->modelGrafik->getGol(); 
+        $x['grafik']    = $this->modelGrafik->getGrafik();
         $this->load->view('admin/dashboard',$x);
   }
 
     public function dashboard() {
-      /* $data['grafik'] = $this->modelGrafik->getGrafik();*/
-        $data['main'] = 'admin/dashboard';
-        $this->load->view('partial/partial', $data);
-    }
+         $x['grafik'] = $this->modelGrafik->getGrafik();
+        $this->load->view('admin/dashboard',$x);}
    
-    public function add_anggota()
-    {
-        $data['kecamatan'] = $this->modelAnggota->get_kecamatan(); 
-        $data['kabupaten'] = $this->modelAnggota->get_kabupaten();     
-        $data['provinsi'] = $this->modelAnggota->get_provinsi();
-        $data['main'] = 'admin/add_anggota';
+    public function add_anggota() {
+        $data['desa']       = $this->modelAnggota->get_desa();
+        $data['kecamatan']  = $this->modelAnggota->get_kecamatan(); 
+        $data['kabupaten']  = $this->modelAnggota->get_kabupaten();     
+        $data['provinsi']   = $this->modelAnggota->get_provinsi();
+        $data['main']       = 'admin/add_anggota';
         $this->load->view('partial/partial', $data);
     }
     public function addAnggota(){
-        /* $this->form_validation->set_rules('no_anggota', 'No anggota ','trim|required');*/
-         $this->form_validation->set_rules('id_anggota', 'Nama ','trim|required');
          $this->form_validation->set_rules('nama_lengkap', 'Nama ','trim|required');
          $this->form_validation->set_rules('username', 'Username','trim|required');
          $this->form_validation->set_rules('alamat', 'Alamat','trim|required');
@@ -45,28 +43,26 @@ class Admin extends CI_Controller{
 
           if ($this->form_validation->run() == TRUE) {
               $data = array(
-                /*'no_anggota' => $this->input->post('no_anggota'),*/
-                'id_anggota' => $this->input->post('id_anggota'),
-                'nama_lengkap' => $this->input->post('nama_lengkap'),
-                'username' => $this->input->post('username'),
-                'tgl_lahir' => $this->input->post('tgl_lahir'),
-                'jk' => $this->input->post('jk'),
-                'agama' => $this->input->post('agama'),
-                'gol_darah' => $this->input->post('gol_darah'),
-                'alamat' => $this->input->post('alamat'),
-                'id_provinsi' =>$this->input->post('nama_provinsi'),
-                'id_kabupaten' => $this->input->post('nama_kabupaten'),
-                'id_kecamatan' => $this->input->post('nama_kecamatan'),
-                'password' => md5($this->input->post('password')),
-                'level' => $this->input->post('level'),
-                'sekolah_id' => $this->input->post('sekolah_id'),
+                 'nama_lengkap'   => $this->input->post('nama_lengkap'),
+                'username'       => $this->input->post('username'),
+                'tgl_lahir'      => $this->input->post('tgl_lahir'),
+                'jk'             => $this->input->post('jk'),
+                'jml_jk'         => $this->input->post('jml_jk'),
+                'agama'          => $this->input->post('agama'),
+                'jml_agama'      =>$this->input->post('jml_agama'),
+                'gol_darah'      => $this->input->post('gol_darah'),
+                'alamat'         => $this->input->post('alamat'),
+                'id_provinsi'    =>$this->input->post('nama_provinsi'),
+                'id_kabupaten'   => $this->input->post('nama_kabupaten'),
+                'id_kecamatan'   => $this->input->post('nama_kecamatan'),
+                'password'       => md5($this->input->post('password')),
+                'level'          => $this->input->post('level'),
+                'sekolah_id'     => $this->input->post('sekolah_id'),
+                'gol_pramuka'    => $this->input->post('gol_pramuka'),
+                'jml_gol'        =>  $this->input->post('jml_gol'),
+                'jml_sekolah'    => $this->input->post('jml_sekolah'),
                 'tkt_pendidikan' => $this->input->post('tkt_pendidikan')
                 );
-              /* $unique = $this->db->where('nama_lengkap',$data['nama_lengkap'])->get('tb_anggota');
-                 if ($unique) {
-                 $this->session->set_flashdata('info', 'Nama  Sudah ada');
-                   redirect('admin/data_anggota','refresh');
-                 }*/
             $cek = $this->modelSekolah->addAnggota($data);
               if ($cek) {
                 $this->session->set_flashdata('info', 'Tambah Data sukses');
@@ -82,8 +78,12 @@ class Admin extends CI_Controller{
 }
 
   public function editAnggota($id=null){
-      $data['anggota'] = $this->modelSekolah->getDataByAnggota($id);
-      $data['main'] = 'admin/edit_anggota';
+      $data['desa']       = $this->modelAnggota->get_desa();
+      $data['kecamatan']  = $this->modelAnggota->get_kecamatan(); 
+      $data['kabupaten']  = $this->modelAnggota->get_kabupaten();     
+      $data['provinsi']   = $this->modelAnggota->get_provinsi();
+      $data['anggota']    = $this->modelSekolah->getDataByAnggota($id);
+      $data['main']       = 'admin/edit_anggota';
       $this->load->view('partial/partial',$data);
         if ($id==null) {
           $this->session->set_flashdata('info','Id makanan tidak boleh kosong!');
@@ -97,18 +97,26 @@ class Admin extends CI_Controller{
            $this->form_validation->set_rules('password', 'Password','trim|required');
         if ($this->form_validation->run() == TRUE) {
           $data = array(
-            'nama_lengkap' => $this->input->post('nama_lengkap'),
-            'username' => $this->input->post('username'),
-            'tgl_lahir' => $this->input->post('tgl_lahir'),
-            'jk' => $this->input->post('jk'),
-            'agama' => $this->input->post('agama'),
-            'gol_darah' => $this->input->post('gol_darah'),
-            'alamat' => $this->input->post('alamat'),
-            'password' => md5($this->input->post('password')),
-            'level' => $this->input->post('level'),
-            'sekolah_id' => $this->input->post('sekolah_id'),
-            'tkt_pendidikan' => $this->input->post('tkt_pendidikan')
-            );
+                'nama_lengkap'   => $this->input->post('nama_lengkap'),
+                'username'       => $this->input->post('username'),
+                'tgl_lahir'      => $this->input->post('tgl_lahir'),
+                'jk'             => $this->input->post('jk'),
+                'jml_jk'         => $this->input->post('jml_jk'),
+                'agama'          => $this->input->post('agama'),
+                'jml_agama'      =>$this->input->post('jml_agama'),
+                'gol_darah'      => $this->input->post('gol_darah'),
+                'alamat'         => $this->input->post('alamat'),
+                'id_provinsi'    =>$this->input->post('nama_provinsi'),
+                'id_kabupaten'   => $this->input->post('nama_kabupaten'),
+                'id_kecamatan'   => $this->input->post('nama_kecamatan'),
+                'password'       => md5($this->input->post('password')),
+                'level'          => $this->input->post('level'),
+                'sekolah_id'     => $this->input->post('sekolah_id'),
+                'gol_pramuka'    => $this->input->post('gol_pramuka'),
+                'jml_gol'        =>  $this->input->post('jml_gol'),
+                'jml_sekolah'    => $this->input->post('jml_sekolah'),
+                'tkt_pendidikan' => $this->input->post('tkt_pendidikan')
+                );
 
       $sql = $this->modelSekolah->updateAnggota($id,$data);
         if ($sql) {
@@ -140,18 +148,18 @@ class Admin extends CI_Controller{
  
 
   public function data_anggota() {
-      $data['anggota'] = $this->modelSekolah->getAnggota();
-      $data['main'] = 'admin/data_anggota';
+      $data['anggota']  = $this->modelSekolah->getAnggota();
+      $data['main']     = 'admin/data_anggota';
       $this->load->view('partial/partial', $data);
     }
   public function data_sekolah() {
-      $data['sekolah'] = $this->modelSekolah->getData();
-      $data['main'] = 'admin/data_sekolah';
+      $data['sekolah']  = $this->modelSekolah->getData();
+      $data['main']     = 'admin/data_sekolah';
       $this->load->view('partial/partial', $data);
     }
   public function add_sekolah(){
-      $data['sekolah'] = $this->modelSekolah->getData();
-      $data['main'] = 'admin/add_sekolah';
+      $data['sekolah']  = $this->modelSekolah->getData();
+      $data['main']     = 'admin/add_sekolah';
       $this->load->view('partial/partial',$data);
 }
  public function addSekolah(){
@@ -159,8 +167,8 @@ class Admin extends CI_Controller{
         if ($this->form_validation->run() == TRUE) {
           $data = array(
             'nama_sekolah' => $this->input->post('nama_sekolah'),
-            'no_gudep' => $this->input->post('no_gudep'),
-            'alamat' => $this->input->post('alamat')
+            'no_gudep'     => $this->input->post('no_gudep'),
+            'alamat'       => $this->input->post('alamat')
             );
         $cek = $this->modelSekolah->addData($data);
         if ($cek) {
@@ -178,7 +186,7 @@ class Admin extends CI_Controller{
 
   public function editSekolah($id=null){
       $data['sekolah'] = $this->modelSekolah->getDataById($id);
-      $data['main'] = 'admin/edit_sekolah';
+      $data['main']    = 'admin/edit_sekolah';
       $this->load->view('partial/partial',$data);
         if ($id==null) {
           $this->session->set_flashdata('info','Id makanan tidak boleh kosong!');
@@ -188,9 +196,9 @@ class Admin extends CI_Controller{
            $this->form_validation->set_rules('nama_sekolah', 'Nama Kategori','trim|required');
         if ($this->form_validation->run() == TRUE) {
           $data = array(
-            'nama_sekolah' => $this->input->post('nama_sekolah'),
-            'no_gudep' => $this->input->post('no_gudep'),
-            'alamat' => $this->input->post('alamat')
+            'nama_sekolah'  => $this->input->post('nama_sekolah'),
+            'no_gudep'      => $this->input->post('no_gudep'),
+            'alamat'        => $this->input->post('alamat')
           );
       $sql = $this->modelSekolah->updateData($id,$data);
         if ($sql) {
@@ -221,26 +229,26 @@ class Admin extends CI_Controller{
 }
   public function kegiatan(){
       $data['kegiatan'] = $this->modelSekolah->getKegiatan();
-      $data['main'] ='admin/kegiatan';
+      $data['main']     ='admin/kegiatan';
       $this->load->view('partial/partial',$data);
     }
   public function add_kegiatan(){
     $data['kegiatan'] = $this->modelSekolah->getKegiatan();
-    $data['main'] ='admin/add_kegiatan';
+    $data['main']     ='admin/add_kegiatan';
       $this->load->view('partial/partial',$data);
     }
   public function addKegiatann(){
      $config = [
-        'upload_path' => './uploads/',
-        'allowed_types' => 'gif|jpg|png',
-        'max_size' => 1000, /*'max_width' => 1000,
+        'upload_path'     => './uploads/',
+        'allowed_types'   => 'gif|jpg|png',
+        'max_size'        => 1000, /*'max_width' => 1000,
         'max_height' => 768*/
       ];
       $this->load->library('upload', $config);
         if (!$this->upload->do_upload('dokumen')) //jika gagal upload
         {
             $data['error'] = $this->upload->display_errors(); //tampilkan error
-            $data['main'] = 'admin/add_kegiatan';
+            $data['main']  = 'admin/add_kegiatan';
             $this->load->view('partial/partial', $data);
         } else
       //jika berhasil upload
@@ -248,9 +256,9 @@ class Admin extends CI_Controller{
           $file = $this->upload->data();
           $data = array(
             'nama_kegiatan' => $this->input->post('nama_kegiatan'),
-            'tgl_kegiatan' => $this->input->post('tgl_kegiatan'),
-            'rincian' => $this->input->post('rincian'),
-            'dokumen' =>$file['file_name']
+            'tgl_kegiatan'  => $this->input->post('tgl_kegiatan'),
+            'rincian'       => $this->input->post('rincian'),
+            'dokumen'       =>$file['file_name']
             );
               $this->modelSekolah->addKegiatann($data); //memasukan data ke database
               redirect('admin/kegiatan'); //mengalihkan halaman
@@ -259,7 +267,7 @@ class Admin extends CI_Controller{
 
   public function editKegiatan($id=null){
       $data['kegiatan'] = $this->modelSekolah->getDataByKegiatan($id);
-      $data['main'] = 'admin/edit_kegiatan';
+      $data['main']     = 'admin/edit_kegiatan';
       $this->load->view('partial/partial',$data);
         if ($id==null) {
           $this->session->set_flashdata('info','Id kegiatan tidak boleh kosong!');
@@ -271,8 +279,8 @@ class Admin extends CI_Controller{
         if ($this->form_validation->run() == TRUE) {
           $data = array(
             'nama_kegiatan' => $this->input->post('nama_kegiatan'),
-            'tgl_kegiatan' => $this->input->post('tgl_kegiatan'),
-            'rincian' => $this->input->post('rincian')
+            'tgl_kegiatan'  => $this->input->post('tgl_kegiatan'),
+            'rincian'       => $this->input->post('rincian')
           );
         $sql = $this->modelSekolah->updateKegiatan($id,$data);
           if ($sql) {
@@ -302,37 +310,37 @@ class Admin extends CI_Controller{
        }
 }
   public function penghargaan(){
-      $data['penghargaan'] = $this->modelSekolah->getPenghargaan();
-      $data['main'] ='admin/penghargaan';
+      $data['penghargaan']  = $this->modelSekolah->getPenghargaan();
+      $data['main']         ='admin/penghargaan';
       $this->load->view('partial/partial',$data);
     }
   public function add_penghargaan(){
       $data['penghargaan'] = $this->modelSekolah->getPenghargaan();
-      $data['main'] ='admin/add_penghargaan';
+      $data['main']        ='admin/add_penghargaan';
       $this->load->view('partial/partial',$data);
     }
   public function addPenghargaan(){
       $config = [
-        'upload_path' => './uploads/',
-        'allowed_types' => 'gif|jpg|png',
-        'max_size' => 1000, /*'max_width' => 1000,
+        'upload_path'     => './uploads/',
+        'allowed_types'   => 'gif|jpg|png',
+        'max_size'        => 1000, /*'max_width' => 1000,
         'max_height' => 768*/
       ];
       $this->load->library('upload', $config);
       if (!$this->upload->do_upload('gambar')) //jika gagal upload
       {
           $data['error'] = $this->upload->display_errors(); //tampilkan error
-          $data['main'] = 'admin/add_penghargaan';
+          $data['main']  = 'admin/add_penghargaan';
           $this->load->view('partial/partial', $data);
       } else
       //jika berhasil upload
       {
-          $file = $this->upload->data();
+      $file = $this->upload->data();
       $data = array(
-        'id_anggota' => $this->input->post('id_anggota'), 
+        'id_anggota'       => $this->input->post('id_anggota'), 
         'nama_penghargaan' => $this->input->post('nama_penghargaan'),
-        'keterangan' => $this->input->post('keterangan'),
-        'gambar' =>$file['file_name']
+        'keterangan'       => $this->input->post('keterangan'),
+        'gambar'           =>$file['file_name']
         );
           $this->modelSekolah->addPenghargaan($data); //memasukan data ke database
           redirect('admin/penghargaan'); //mengalihkan halaman
@@ -340,7 +348,7 @@ class Admin extends CI_Controller{
     }
   public function editPenghargaan($id=null){
       $data['penghargaan'] = $this->modelSekolah->getDataByPenghargaan($id);
-      $data['main'] = 'admin/edit_penghargaan';
+      $data['main']        = 'admin/edit_penghargaan';
       $this->load->view('partial/partial',$data);
         if ($id==null) {
           $this->session->set_flashdata('info','Id kegiatan tidak boleh kosong!');
@@ -353,7 +361,7 @@ class Admin extends CI_Controller{
         if ($this->form_validation->run() == TRUE) {
           $data = array(
             'nama_penghargaan' => $this->input->post('nama_penghargaan'),
-            'keterangan' => $this->input->post('keterangan')        );
+            'keterangan'       => $this->input->post('keterangan')        );
 
         $sql = $this->modelSekolah->updatePenghargaan($id,$data);
           if ($sql) {
@@ -385,19 +393,17 @@ class Admin extends CI_Controller{
   public function laporan_anggota(){
       $data['anggota'] = $this->modelSekolah->getAnggota();
       $this->load->view('admin/laporan_anggota',$data);
-  
-       $this->pdff->setPaper('A4', 'potrait');
-    $this->pdff->filename = "laporan.pdf";
-    $this->pdff->load_view('admin/laporan_anggota', $data);
+      $this->pdff->setPaper('A4', 'potrait');
+      $this->pdff->filename = "laporan.pdf";
+      $this->pdff->load_view('admin/laporan_anggota', $data);
   }
 
     public function laporan_sekolah(){
       $data['sekolah'] = $this->modelSekolah->getData();
       $this->load->view('admin/laporan_sekolah',$data);
-  
-       $this->pdff->setPaper('A4', 'potrait');
-    $this->pdff->filename = "laporan.pdf";
-    $this->pdff->load_view('admin/laporan_sekolah', $data);
+      $this->pdff->setPaper('A4', 'potrait');
+      $this->pdff->filename = "laporan.pdf";
+      $this->pdff->load_view('admin/laporan_sekolah', $data);
   }
   public function laporan_pdf(){
       $data['main'] ='admin/laporan_pdf';
@@ -408,7 +414,6 @@ class Admin extends CI_Controller{
       $this->load->view('partial/partial',$data);
     }
   public function report_upload(){
- /*    $data['anggota'] = $this->modelSekolah->tampilAnggota();*/
       $data['kegiatan'] = $this->modelSekolah->getKegiatan();
       $data['main'] ='admin/report_upload';
       $this->load->view('partial/partial',$data);
