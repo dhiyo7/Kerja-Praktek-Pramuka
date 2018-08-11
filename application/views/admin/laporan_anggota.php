@@ -25,6 +25,7 @@
       border-collapse: collapse;
       font-family: arial;
       color:#5E5B5C;
+    text-align: :center;
     }
  
     thead th{

@@ -30,6 +30,13 @@
                         </div>
                          <div class="panel-body" style="padding-bottom:30px;">
                           <div class="col-md-12">
+                              <div class="form-group">
+                            <label class="col-md-2 control-label text-right">No Anggota</label>
+                              <div class="col-md-10">
+                              <input type="text" name="id_anggota" class="form-control">
+                                     <?php echo form_error('no_anggota');?>
+                              </div>
+                            </div>
                             <div class="form-group">
                             <label class="col-md-2 control-label text-right">Nama Penghargaan</label>
                               <div class="col-md-10">

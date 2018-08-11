@@ -1,4 +1,3 @@
-
             <!-- start: Content -->
             <div id="content">
                <div class="panel box-shadow-none content-header">
@@ -11,7 +10,6 @@
             <?php } ?>
                     <div class="col-md-12">
                         <h3 class="animated fadeInLeft">Data Penghargaan</h3>
-                        
                     </div>
                   </div>
               </div>
@@ -41,6 +39,7 @@
                           <th>Nama Penghargaan</th>
                           <th>Gambar</th>
                           <th>Keterangan</th>
+                          <th>Nama</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -55,6 +54,7 @@
                           <td><?php echo $d->nama_penghargaan?></td>
                           <td><img style="width: 100px;" src='<?= base_url().'uploads/'.$d->gambar ?>'></td>
                           <td><?php echo $d->keterangan?></td>
+                          <td><?php echo $d->nama_lengkap?></td>
                             <td style="text-align: center;">
                           <a class='btn ripple-infinite btn-round btn-edit' href="<?php echo base_url('admin/editPenghargaan/'.$d->id_penghargaan);?>"  class=""><i class="glyphicon glyphicon-edit"></i> </a>
                          <a class='btn ripple-infinite btn-round btn-delete' href="<?php echo base_url('admin/deletePenghargaan/'.$d->id_penghargaan);?>"><i class="glyphicon glyphicon-trash"></i> </a> 

@@ -18,7 +18,7 @@
                         </select>
                         <br>
                       </div>
-                                  <a href="<?php echo base_url()?>Laporan" ><button class="btn ripple-infinite btn-3d btn-success">
+                                  <a href="<?php echo base_url()?>admin/laporan_sekolah" ><button class="btn ripple-infinite btn-3d btn-success">
                                 <div><i class="fa fa-print"></i>
                                   <span>Print</span>
                                 </div>

@@ -48,24 +48,17 @@
                               <input type="text" name="rincian" class="form-control">
                               </div>
                             </div>
-<<<<<<< HEAD
                            <div class="form-group">
                             <label class="col-md-2 control-label text-right">Rincian</label>
                               <div class="col-md-10">
                               <input type="file" name="dokumen" class="form-control">
                               </div>
                             </div>  
-=======
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                    <label class="col-md-2 control-label text-right"></label>
                     <div class="form-group">
                       <label class="col-md-2 control-label text-right"></label>
                     <div class="col-md-5">
-<<<<<<< HEAD
                         <button type="submit" name="submit" class="btn  btn-3d btn-success" value="submit">Save</button>
-=======
-                        <button type="submit" class="btn  btn-3d btn-success" value="submit">Save</button>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                             <a href="<?php echo base_url('admin/kegiatan');?>" class="btn btn-3d btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
                         </div>
                       </div>

@@ -3,7 +3,7 @@
                 <div class="panel box-shadow-none content-header">
                   <div class="panel-body">
                     <div class="col-md-12">
-                        <h3 class="animated fadeInLeft">Tambah Anggota</h3>
+                        <h3 class="animated fadeInLeft">Edit Anggota</h3>
                              <?php if($this->session->flashdata('info')){ ?>
                 <div class="alert alert-warning alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -16,7 +16,7 @@
                     'name'=>'editAnggota',
                     'class'=>'form-horizontal'
                     );  
-              echo form_open('admin/editAnggota/'.$anggota->id,$name);
+              echo form_open('admin/editAnggota/'.$anggota->id_anggota,$name);
             ?>
                     </div>
                   </div>
@@ -33,8 +33,8 @@
                             <div class="form-group">
                             <label class="col-md-2 control-label text-right">Nama</label>
                               <div class="col-md-10">
-                              <input type="text" name="nama" id="nama" class="form-control" value="<?php echo $anggota->nama;?>">
-                                     <?php echo form_error('nama');?>
+                              <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" value="<?php echo $anggota->nama_lengkap;?>">
+                                     <?php echo form_error('nama_lengkap');?>
                               </div>
                             </div>
                             <div class="form-group">
@@ -52,17 +52,19 @@
                               </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-2 control-label text-right">Jenis Kelamin</label>
+                             <div class="form-group"><label class="col-sm-2 control-label text-right">Jenis Kelamin</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
-                                  <input type="radio" name="jk" value="<?php echo $anggota->jk;?>" id="jk"> Laki-Laki
-                                       <?php echo form_error('jk');?>
-                                   <input type="radio" name="jk" value="<?php echo $anggota->jk;?>" id="jk"> Perempuan
-                                       <?php echo form_error('jk');?>
+                                  <input type="radio" name="jk" value="L" id="jk"> L
+                                       <?php echo form_error('L');?>
+                                   <input type="radio" name="jk" value="P" id="jk"> P
+                                       <?php echo form_error('P');?>
                                 </div>
                               </div>
                             </div>
-                             <div class="form-group">
+
+                           
+                          <div class="form-group">
                             <label class="col-md-2 control-label text-right">Sekolah</label>
                               <div class="col-md-10">
                               <input type="text" name="sekolah_id" id="sekolah_id" value="<?php echo $anggota->sekolah_id;?>" class="form-control">
@@ -72,29 +74,62 @@
                          <div class="form-group"><label class="col-sm-2 control-label text-right">Agama</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
-                                  <input type="radio" name="agama" value="<?php echo $anggota->agama;?>" id="agama"> Islam
+                                  <input type="radio" name="agama" value="Islam" id="agama"> Islam
                                        <?php echo form_error('islam');?>
-                                   <input type="radio" name="agama" value="<?php echo $anggota->agama;?>" id="agama"> Kristen
+                                   <input type="radio" name="agama" value="kristen" id="agama"> Kristen
                                        <?php echo form_error('kristen');?>
-                                    <input type="radio" name="agama" value="<?php echo $anggota->agama;?>" id="agama"> Budha<br>
+                                    <input type="radio" name="agama" value="budha" id="agama"> Budha<br>
                                       <?php echo form_error('budha');?>
-                                    <input type="radio" name="agama" value="<?php echo $anggota->agama;?>" id="agama"> Hindu
+                                    <input type="radio" name="agama" value="hindu" id="agama"> Hindu
                                       <?php echo form_error('hindu');?>
-                                    <input type="radio" name="agama" value="<?php echo $anggota->agama;?>" id="agama"> Katholik
+                                    <input type="radio" name="agama" value="khatolik" id="agama"> Katholik
                                       <?php echo form_error('katholik');?>
-                                    <input type="radio" name="agama" value="<?php echo $anggota->agama;?>" id="agama"> Konghuchu
-                                      <?php echo form_error('konghucu');?>
+                                    <input type="radio" name="agama" value="konghuchu" id="agama"> Konghuchu
+                                      <?php echo form_error('konghuchu');?>
                                 </div>
                               </div>
                             </div>
-
-                        <div class="form-group">
-                            <label class="col-md-2 control-label text-right">Alamat</label>
-                              <div class="col-md-10">
-                              <input type="text" name="alamat" value="<?php echo $anggota->alamat;?>" id="alamat" class="form-control">
-                                   <?php echo form_error('alamat');?>
-                              </div>
-                            </div>
+                          <div class="form-group">
+                             <label class="col-md-2 control-label text-right">Alamat</label>
+                             <div class="col-md-10">
+                         <div class="col-md-3">
+                           <select name="nama_provinsi" id="nama_provinsi" class="form-control" data-live-search="true">
+                               <option style="margin: 50px;" class="selectpicker form-control">--Pilih Provinsi--</option>
+                              <?php foreach($provinsi as $k):?>
+                                <option  value="<?php echo $k->id_provinsi;?>"><?php echo $k->nama_provinsi;?></option>
+                                    <?php endforeach;?>
+                             </select>
+                      </div>    
+                       <div class="col-md-3">
+                        <select name="nama_kabupaten" id="nama_kabupaten" class="form-control" data-live-search="true">
+                               <option style="margin: 50px;" class="selectpicker form-control">--Pilih Kabupaten--</option>
+                              <?php foreach($kabupaten as $k):?>
+                                <option  value="<?php echo $k->id_kabupaten;?>"><?php echo $k->nama_kabupaten;?></option>
+                                    <?php endforeach;?>
+                             </select>
+                   
+                    </div>
+                 
+                       <div class="col-md-3">
+                         <select name="nama_kecamatan" id="nama_kecamatan" class="form-control" data-live-search="true">
+                               <option style="margin: 50px;" class="selectpicker form-control">--Pilih Kecamatan--</option>
+                              <?php foreach($kecamatan as $k):?>
+                                <option  value="<?php echo $k->id_kecamatan;?>"><?php echo $k->nama_kecamatan;?></option>
+                                    <?php endforeach;?>
+                             </select>
+                        <br>
+                      </div>
+                      <div class="col-md-3">
+                         <select name="nama_desa" id="nama_desa" class="form-control" data-live-search="true">
+                               <option style="margin: 50px;" class="selectpicker form-control">--Pilih Desa--</option>
+                              <?php foreach($desa as $k):?>
+                                <option  value="<?php echo $k->id_desa;?>"><?php echo $k->nama_desa;?></option>
+                                    <?php endforeach;?>
+                             </select>
+                        <br>
+                      </div>
+                      </div>
+                    </div>
                              <div class="form-group"><label class="col-sm-2 control-label text-right">Golongan Darah</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
@@ -114,6 +149,23 @@
                                    <?php echo form_error('password');?>
                               </div>
                             </div>
+            
+                          <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah Sekolah</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_sekolah" class="form-control" value="1">
+                                   <?php echo form_error('password');?>
+                              </div>
+                          </div><br>
+      
+                          <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah Golongan</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_gol" class="form-control" value="1">
+                                   <?php echo form_error('password');?>
+                              </div>
+                          </div><br>
+
                             <div class="form-group">
                             <label class="col-md-2 control-label text-right">Level</label>
                               <div class="col-md-10">
@@ -121,6 +173,37 @@
                                    <?php echo form_error('level');?>
                               </div>
                             </div>
+                            <div class="form-group"><label class="col-sm-2 control-label text-right">Golongan Pramuka</label>
+                              <div class="col-sm-10">
+                                <div class="col-sm-12 padding-0">
+                                  <select name="gol_pramuka" value="<?php echo $anggota->gol_pramuka;?>" class="form-control">
+                                    <option value="siaga">Siaga</option>
+                                    <option value="penggalang">Penggalang</option>
+                                    <option value="penegak">Penegak</option>
+                                    <option value="pandega">Pandega</option>
+                                    <option value="pembina">Pembina</option>
+                                   
+                                  </select>
+                                </div>
+                                </div>
+                                </div>
+                                <br>
+                           <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah jk</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_jk" class="form-control" value="1">
+                                   <?php echo form_error('password');?>
+                              </div>
+                          </div><br>
+                  
+                          <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah agama</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_agama"  value="1" class="form-control">
+                                   <?php echo form_error('password');?>
+                              </div>
+                          </div><br>
+
                             <div class="form-group">
                             <label class="col-md-2 control-label text-right">Tingkat pendidikan</label>
                               <div class="col-md-10">
@@ -128,29 +211,6 @@
                                    <?php echo form_error('tkt_pendidikan');?>
                               </div>
                             </div>
-                         <!--     <div class="form-group"><label class="col-sm-2 control-label text-right">Level</label>
-                              <div class="col-sm-10">
-                                <div class="col-sm-12 padding-0">
-                                  <select name="level" class="form-control">
-                                    <option value="admin">admin</option>
-                                    <option value="user">user</option>
-                                  </select>
-                                </div>
-                                </div>
-                                </div> -->
-                        <!--      <div class="form-group"><label class="col-sm-2 control-label text-right">Tingkat Pendidikan</label>
-                              <div class="col-sm-10">
-                                <div class="col-sm-12 padding-0">
-                                  <select name="gol_darah" class="form-control">
-                                    <option value="SD">SD</option>
-                                    <option value="SMP">SMP</option>
-                                    <option value="SMA">SMA/SMA</option>
-                                   
-                                  </select>
-                                </div>
-                                </div>
-                                </div>              
-                              </div>      -->
                                <label class="col-md-2 control-label text-right"></label>
                                 <div class="form-group">
                                   <label class="col-md-2 control-label text-right"></label>

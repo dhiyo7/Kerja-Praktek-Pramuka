@@ -33,13 +33,8 @@
                             <div class="form-group">
                             <label class="col-md-2 control-label text-right">Nama</label>
                               <div class="col-md-10">
-<<<<<<< HEAD
-                              <input type="text" name="nama_lengkap" class="form-control">
+                              <input type="text" name="nama_lengkap" class="form-control" required="">
                                      <?php echo form_error('nama_lengkap');?>
-=======
-                              <input type="text" name="nama" class="form-control">
-                                     <?php echo form_error('nama');?>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                               </div>
                             </div>
                             <div class="form-group">
@@ -60,9 +55,9 @@
                             <div class="form-group"><label class="col-sm-2 control-label text-right">Jenis Kelamin</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
-                                  <input type="radio" name="jk" value="L"> Laki-Laki
+                                  <input type="radio" name="jk" value="L"> L
                                        <?php echo form_error('jk');?>
-                                   <input type="radio" name="jk" value="P"> Perempuan
+                                   <input type="radio" name="jk" value="P"> P
                                        <?php echo form_error('jk');?>
                                 </div>
                               </div>
@@ -93,7 +88,6 @@
                               </div>
                             </div>
                              </div>
-<<<<<<< HEAD
                               <div class="form-group">
                                  <label class="col-md-2 control-label text-right">Alamat</label>
                              <div class="col-md-10">
@@ -137,19 +131,11 @@
                     </div>
                     <div class="form-group">
                             <label class="col-md-2 control-label text-right"></label>
-=======
-                             <div class="form-group">
-                            <label class="col-md-2 control-label text-right">Alamat</label>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                               <div class="col-md-10">
-                              <input type="text" name="alamat" class="form-control">
+                              <input type="text" name="alamat" class="form-control" placeholder="Jl">
                                    <?php echo form_error('alamat');?>
                               </div>
                             </div>
-<<<<<<< HEAD
-=======
-            
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                              <div class="form-group"><label class="col-sm-2 control-label text-right">Golongan Darah</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
@@ -162,11 +148,7 @@
                                     <br>
                                 </div>
                               </div>
-<<<<<<< HEAD
                             </div>
-=======
-                            </div><br>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                                <div class="form-group">
                             <label class="col-md-2 control-label text-right">Password</label>
                               <div class="col-md-10">
@@ -174,23 +156,34 @@
                                    <?php echo form_error('password');?>
                               </div>
                             </div><br>
-<<<<<<< HEAD
-=======
-                    <!--         <div class="form-group">
-                            <label class="col-md-2 control-label text-right">Level</label>
-                              <div class="col-md-10"><br>
-                              <input type="text" name="level" class="form-control">
+                              <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah jk</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_jk" class="form-control" value="1">
                                    <?php echo form_error('password');?>
                               </div>
-                            </div>
-                            <div class="form-group">
-                            <label class="col-md-2 control-label text-right">Tingkat pendidikan</label>
-                              <div class="col-md-10"><br>
-                              <input type="text" name="tkt_pendidikan" class="form-control">
+                            </div><br>
+                              <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right" >Jumlah agama</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_agama" value="1" class="form-control">
                                    <?php echo form_error('password');?>
                               </div>
-                            </div> -->
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
+                            </div><br>
+                              <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah Sekolah</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_sekolah" class="form-control" value="1">
+                                   <?php echo form_error('password');?>
+                              </div>
+                            </div><br>
+                              <div class="form-group" hidden>
+                            <label class="col-md-2 control-label text-right">Jumlah Golongan</label>
+                              <div class="col-md-10">
+                              <input type="text" name="jml_gol" class="form-control" value="1">
+                                   <?php echo form_error('password');?>
+                              </div>
+                            </div><br>
                             <div class="form-group"><label class="col-sm-2 control-label text-right">Level</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
@@ -201,7 +194,22 @@
                                 </div>
                                 </div>
                                 </div> 
-                              <div class="form-group"><label class="col-sm-2 control-label text-right">Tingkat Pendidikan</label>
+                              <div class="form-group"><label class="col-sm-2 control-label text-right">Golongan Pramuka</label>
+                              <div class="col-sm-10">
+                                <div class="col-sm-12 padding-0">
+                                  <select name="gol_pramuka" class="form-control">
+                                    <option value="siaga">Siaga</option>
+                                    <option value="penggalang">Penggalang</option>
+                                    <option value="penegak">Penegak</option>
+                                    <option value="pandega">Pandega</option>
+                                    <option value="pembina">Pembina</option>
+                                   
+                                  </select>
+                                </div>
+                                </div>
+                                </div>
+                                <br>
+                                <div class="form-group"><label class="col-sm-2 control-label text-right">Tingkat Pendidikan</label>
                               <div class="col-sm-10">
                                 <div class="col-sm-12 padding-0">
                                   <select name="tkt_pendidikan" class="form-control">
@@ -212,29 +220,15 @@
                                   </select>
                                 </div>
                                 </div>
-<<<<<<< HEAD
-                                </div>
-                                <br><br>
-                                </br></br>        
-=======
-                                </div>              
-                              </div>      
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
+                                </div>      
                                <label class="col-md-2 control-label text-right"></label>
                                 <div class="form-group">
                                   <label class="col-md-2 control-label text-right"></label>
                                 <div class="col-md-5">
-<<<<<<< HEAD
-                                       <button type="submit" class="btn btn-3d btn-info" value="submit">Save</button>
+                                       <button type="submit" class="btn btn-3d btn-success" value="submit">Save</button>
                                         <a href="<?php echo base_url('admin/data_anggota');?>" class="btn btn-3d btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
                                     </div>
                                   </div>
                               </div>      
                               
-=======
-                                       <button type="submit" class="btn  btn-3d btn-success" value="submit">Save</button>
-                                        <a href="<?php echo base_url('admin/data_anggota');?>" class="btn btn-3d btn-warning"><i class="fa fa-arrow-left"></i> Kembali</a>
-                                    </div>
-                                  </div>
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
                               

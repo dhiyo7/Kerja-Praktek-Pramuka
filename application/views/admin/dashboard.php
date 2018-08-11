@@ -4,7 +4,7 @@
   
   <meta charset="utf-8">
   <meta name="description" content="Miminium Admin Template v.1">
-  <meta name="author" content="Isna Nur Azis">
+  <meta name="author" content="Ali budi purnomo">
   <meta name="keyword" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Salam Pramuka</title>
@@ -20,20 +20,32 @@
   <link href="<?php echo base_url()?>asset/css/style.css" rel="stylesheet">
   <!-- end: Css -->
 
-                <?php
+              <?php
         foreach($grafik as $data){
-            $nama_lengkap[] = $data->nama_lengkap;
-            $jk[] =  $data->jk;
+            $jk[] = $data->jk;
+            $jml_jk[] = (float) $data->jml_jk;
+             }
+    ?> 
+         <?php
+        foreach($grafika as $data){
+            $agama[] = $data->agama;
+            $jml_agama[] = $data->jml_agama;
         }
-    ?>
+    ?> 
+          <?php
+        foreach($grafi as $data){
+            $tkt_pendidikan[] = $data->tkt_pendidikan;
+            $jml_sekolah[] = $data->jml_sekolah;
+        }
+    ?> 
 
-  <link rel="shortcut icon" href="<?php echo base_url()?>asset/img/logomi.png">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
+      <?php
+        foreach($gol as $data){
+            $gol_pramuka[] = $data->gol_pramuka;
+            $jml_gol[] = $data->jml_gol;
+        }
+    ?> 
+  <link rel="shortcut icon" href="<?php echo base_url()?>images/pra.png">
 </head>
   </head>
 
@@ -65,7 +77,7 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right user-nav">
-                <li class="user-name"><span>Pramuka Uye</span></li>
+                <li class="user-name"><span>Admin</span></li>
                   <li class="dropdown avatar-dropdown">
                    <img src="<?php echo base_url()?>asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
                    <ul class="dropdown-menu user-dropdown">
@@ -146,20 +158,12 @@
                 <div class="panel">
                   <div class="panel-body">
                       <div class="col-md-6 col-sm-12">
-                        <h3 class="animated fadeInLeft">Customer Service</h3>
-                        <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Batavia,Indonesia</p>
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="" >Impedit</a></li>
-                            <li><a href="" class="active">Virtute</a></li>
-                            <li><a href="">Euismod</a></li>
-                            <li><a href="">Explicar</a></li>
-                            <li><a href="">Rebum</a></li>
-                        </ul>
+                        <h3 class="animated fadeInLeft">Dashboard</h3>
+                        <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Yogyakarta,Indonesia</p> 
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
-                          <h3 style="color:#DDDDDE;"><span class="fa  fa-map-marker"></span> Banyumas</h3>
+                          <h3 style="color:#DDDDDE;"><span class="fa  fa-map-marker"></span>Yogyakarta</h3>
                           <h1 style="margin-top: -10px;color: #ddd;">30<sup>o</sup></h1>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -187,12 +191,70 @@
                     </div>
                   </div>                    
                 </div>
-<form class="form-group">
+  <div class="col-md-6">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Jenis Kelamin</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas  id="canvas"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+ <div class="col-md-6">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Agama</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas  id="canvas2"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
 
-  <canvas id="canvas" width="500" height="160"></canvas>
-  <canvas id="canvas2" width="500" height="160"></canvas>
-  <br> <canvas id="canvas3" width="500" height="160"></canvas>
-</form>
+ <div class="col-md-6">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Sekolah</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas  id="canvas3"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+
+ <div class="col-md-6">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Golongan</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas  id="canvas4"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+
+<!-- 
+  <div class="col-md-12">
+                <div class="panel">
+                       <div class="panel-heading-white panel-heading">
+                          <h4>Bar Chart</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                             <canvas  id="barData"></canvas>
+                            </div>
+                        </div>
+                  </div>
+            </div> -->
           <!-- end: content -->
       <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
         <span class="fa fa-bars"></span>
@@ -217,10 +279,11 @@
 
     <!-- custom -->
      <script src="<?php echo base_url()?>asset/js/main.js"></script>
-     <script type="text/javascript" src="<?php echo base_url().'asset/chartjs/chart.min.js'?>"></script>
+     <script type="text/javascript" src="<?php echo base_url().'asset/chartjs/chart.min.js'?>"></script> 
      <script type="text/javascript">
+     //   (function(jQuery){
     var lineChartData = {
-                labels : <?php echo json_encode($nama_lengkap);?>,
+                labels : <?php echo json_encode($jk);?>,
                 datasets : [
                     
                     {
@@ -230,7 +293,7 @@
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(152,235,239,1)",
-                        data : <?php echo json_encode($jk);?>
+                        data : <?php echo json_encode($jml_jk);?>
                     }
 
                 ]
@@ -239,8 +302,8 @@
 
         var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
 
-         var lineChartData = {
-                labels : <?php echo json_encode($nama_lengkap);?>,
+         var line = {
+                labels : <?php echo json_encode($agama);?>,
                 datasets : [
                     
                     {
@@ -250,17 +313,17 @@
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(152,235,239,1)",
-                        data : <?php echo json_encode($jk);?>
+                        data : <?php echo json_encode($jml_agama);?>
                     }
 
                 ]
                 
             }
 
-        var myLine = new Chart(document.getElementById("canvas2").getContext("2d")).Line(lineChartData);
+        var myLine = new Chart(document.getElementById("canvas2").getContext("2d")).Line(line);
 
-            var lineChartData = {
-                labels : <?php echo json_encode($nama_lengkap);?>,
+  var line = {
+                labels : <?php echo json_encode($tkt_pendidikan);?>,
                 datasets : [
                     
                     {
@@ -270,15 +333,39 @@
                         pointStrokeColor: "#fff",
                         pointHighlightFill: "#fff",
                         pointHighlightStroke: "rgba(152,235,239,1)",
-                        data : <?php echo json_encode($jk);?>
+                        data : <?php echo json_encode($jml_sekolah);?>
                     }
 
                 ]
                 
             }
 
-        var myLine = new Chart(document.getElementById("canvas3").getContext("2d")).Line(lineChartData);
+        var myLine = new Chart(document.getElementById("canvas3").getContext("2d")).Line(line);
+     
+     var line = {
+                labels : <?php echo json_encode($gol_pramuka);?>,
+                datasets : [
+                    
+                    {
+                        fillColor: "rgba(60,141,188,0.9)",
+                        strokeColor: "rgba(60,141,188,0.8)",
+                        pointColor: "#3b8bba",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(152,235,239,1)",
+                        data : <?php echo json_encode($jml_gol);?>
+                    }
+
+                ]
+                
+            }
+
+        var myLine = new Chart(document.getElementById("canvas4").getContext("2d")).Line(line);
+     
+
      </script>
+
+
   <!-- end: Javascript -->
   </body>
 </html>

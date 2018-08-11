@@ -1,3 +1,4 @@
+
   <!-- start: Content -->
             <div id="content">
                 <div class="panel box-shadow-none content-header">
@@ -16,11 +17,7 @@
                     'name'=>'editKegiatan',
                     'class'=>'form-horizontal'
                     );  
-<<<<<<< HEAD
                 echo form_open_multipart('admin/editKegiatan/'.$kegiatan->id_kegiatan,$name);
-=======
-                echo form_open_multipart('admin/editKegiatan/'.$kegiatan->id,$name);
->>>>>>> 8d6572d76750e65ef3a0816a12f0cde6104b4573
             ?>
                     </div>
                   </div>
